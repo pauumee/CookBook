@@ -12,6 +12,10 @@ using Microsoft.EntityFrameworkCore;
 using CookBook.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using CookBook.Models;
+using CookBook.IRepository;
+using CookBook.Repository;
+using CookBook.Controllers.API;
 
 namespace CookBook
 {
@@ -37,14 +41,21 @@ namespace CookBook
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<ApplicationUser, ApplicationRole>(
+                                options => options.Stores.MaxLengthForKeys = 128)
+                                .AddEntityFrameworkStores<ApplicationDbContext>()
+                                .AddDefaultUI()
+                                .AddDefaultTokenProviders();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                            .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+            services.AddTransient<IRecipeRepository, RecipeRepository>();
+            services.AddTransient<IIngredientRepository, IngredientRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDbContext context, RoleManager<ApplicationRole> roleManager, UserManager<ApplicationUser> userManager)
         {
             if (env.IsDevelopment())
             {
@@ -69,6 +80,8 @@ namespace CookBook
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            DbInitializer.Initialize(context, userManager, roleManager).Wait();
         }
     }
 }

@@ -1,0 +1,84 @@
+[
+  {
+    "Id": 1,
+    "Name": "Grilled Cheese",
+    "UserId": 1,
+    "Ingredients": [
+      {
+        "Name": "Bread"
+      },
+      {
+        "Name": "Butter"
+      },
+      {
+        "Name": "Cheese"
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Name": "Pasta Salad",
+    "UserId": 1,
+    "Ingredients": [
+      {
+        "Name": "Chilled Pasta"
+      },
+      {
+        "Name": "Vinegar"
+      },
+      {
+        "Name": "Oil"
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Name": "Cake",
+    "UserId": 2,
+    "Ingredients": [
+      {
+        "Name": "Sugar"
+      },
+      {
+        "Name": "Butter"
+      },
+      {
+        "Name": "Flour"
+      },
+      {
+        "Name": "Eggs"
+      },
+      {
+        "Name": "Vanilla Extract"
+      },
+      {
+        "Name": "Milk"
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Name": "Macarons",
+    "UserId": 2,
+    "Ingredients": [
+      {
+        "Name": "Sugar"
+      },
+      {
+        "Name": "Butter"
+      },
+      {
+        "Name": "Flour"
+      },
+      {
+        "Name": "Eggs"
+      },
+      {
+        "Name": "Vanilla Extract"
+      },
+      {
+        "Name": "Milk"
+      }
+    ]
+  }
+]

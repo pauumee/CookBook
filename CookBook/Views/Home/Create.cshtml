@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Create Recipe";
+}
+
+<div class="row" style="margin-top: 25px;">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Cook Book Recipes</h3>
+        </div>
+        <div class="panel-body">
+            <form id="newRecipeForm">
+                <label class="control-label col-md-2">Recipe Name</label>
+                <div class="col-md-10">
+                    <input type="text" name="Name" class="form-control" id="recipeName" />
+                </div>
+                <div class="col-md-12">
+                    <hr />
+                </div>
+                <label class="control-label col-md-2">New Ingredient</label>
+                <div class="col-md-9">
+                    <input type="text" name="newIngredient" class="form-control" id="newIngredient" />
+                </div>
+                <div class="col-md-1">
+                    <input type="button" class="btn btn-info" value="Insert" id="insertIngredient"/>
+                </div>
+                <div class="col-md-12">
+                    <hr />
+                    <label class="control-label col-md-2">Ingredients</label>
+                </div>
+                <div class="col-md-12">
+                    <ul class="list-group list-group-flush" id="ingredientsList">
+                        <!-- ingredients -->
+                    </ul>
+                </div>
+                <div class="col-md-12">
+                    <input type="button" class="btn btn-default" value="Save Recipe" id="saveRecipe"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

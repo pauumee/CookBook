@@ -1,8 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Cook Book";
-}
-
-<div class="row" style="margin-top: 25px;">
+﻿<div class="row" style="margin-top: 25px;">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">Cook Book Recipes</h3>
@@ -11,10 +7,10 @@
             <div class="col-md-12">
                 <label class="control-label col-md-1">Recipes</label>
                 <div class="col-md-9">
-                    <select class="form-control" id="recipes-dropdown" name="recipe"></select>
+                    <select class="form-control"></select>
                 </div>
                 <div class="col-md-2">
-                    <a asp-controller="Home" asp-action="Create" class="btn btn-info">Create New Recipe</a>
+                    <input type="button" class="btn btn-info" value="Create New Recipe" />
                 </div>
             </div>
             <hr />
@@ -29,7 +25,8 @@
                         </thead>
                         <tbody id="ingredientsList">
                             <tr>
-                                <td colspan="2" style="font-style: italic">No selected recipe</td>
+                                <td>Bread</td>
+                                <td><input type="checkbox" /> Checked</td>
                             </tr>
                         </tbody>
                     </table>
